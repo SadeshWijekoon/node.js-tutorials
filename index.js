@@ -1,6 +1,6 @@
 import { log } from 'node:console'
 // import { appendFile, readFile, rm, writeFile } from 'node:fs'
-import {readFile,writeFile,appendFile,rm} from 'node:fs/promises'
+import {readFile,writeFile,appendFile,rm, rmdir} from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -33,13 +33,18 @@ log(__dirname);
 //     console.log(a)
 //     `)
 
-appendFile(join(__dirname,'write.js'),`
-const c='upul';
-console.log(c)
-`).then(
-    res=>log(res)
-    .catch(err=>log(err))
-)
+// appendFile(join(__dirname,'write.js'),`
+// const c='upul';
+// console.log(c)
+// `).then(
+//     res=>log(res)
+//     .catch(err=>log(err))
+// )
+
+
+rm(join(__dirname,'read.txt'))
+.then(res=>log(res))
+.catch(err=>log(err))
 
 // callback Api
 
