@@ -12,13 +12,26 @@ log(__dirname);
 
 // promise api 
 
-readFile(join(__dirname,'read.txt'),{
-    encoding:'utf8'
-}).then((data)=>log(data))
-  .catch(err=>log(err))
+// readFile(join(__dirname,'read.txt'),{
+//     encoding:'utf8'
+// }).then((data)=>log(data))
+//   .catch(err=>log(err))
 
 
-
+  const writeFun = async (data) => {
+    try {
+      await writeFile(join(__dirname, 'write.js'), data, {
+        encoding: 'utf-8',
+      });
+      log('File written successfully!');
+    } catch (err) {
+      log('Error writing file:', err);
+    }
+  };
+  writeFun(`
+    const a = 'Sadesh'
+    console.log(a)
+    `)
 
 // callback Api
 
