@@ -1,5 +1,6 @@
 import { log } from 'node:console'
-import { appendFile, readFile, rm, writeFile } from 'node:fs'
+// import { appendFile, readFile, rm, writeFile } from 'node:fs'
+import {readFile,writeFile,appendFile,rm} from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -8,6 +9,18 @@ const __dirname = dirname(__filename)
 
 log(__filename);
 log(__dirname);
+
+// promise api 
+
+readFile(join(__dirname,'read.txt'),{
+    encoding:'utf8'
+}).then((data)=>log(data))
+  .catch(err=>log(err))
+
+
+
+
+// callback Api
 
 // readFile(join(__dirname,"read.txt"),{
 //     encoding:'utf-8'
@@ -47,11 +60,11 @@ log(__dirname);
 //     }
 // })
 
-rm(join(__dirname,'write.js'),(err)=>{
-  if(err){
-    console.log(err);
+// rm(join(__dirname,'write.js'),(err)=>{
+//   if(err){
+//     console.log(err);
     
-  }else{
-    log('remove sucessfully')
-  }
-})
+//   }else{
+//     log('remove sucessfully')
+//   }
+// })
