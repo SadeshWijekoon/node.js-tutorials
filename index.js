@@ -18,20 +18,28 @@ log(__dirname);
 //   .catch(err=>log(err))
 
 
-  const writeFun = async (data) => {
-    try {
-      await writeFile(join(__dirname, 'write.js'), data, {
-        encoding: 'utf-8',
-      });
-      log('File written successfully!');
-    } catch (err) {
-      log('Error writing file:', err);
-    }
-  };
-  writeFun(`
-    const a = 'Sadesh'
-    console.log(a)
-    `)
+//   const writeFun = async (data) => {
+//     try {
+//       await writeFile(join(__dirname, 'write.js'), data, {
+//         encoding: 'utf-8',
+//       });
+//       log('File written successfully!');
+//     } catch (err) {
+//       log('Error writing file:', err);
+//     }
+//   };
+//   writeFun(`
+//     const a = 'Sadesh'
+//     console.log(a)
+//     `)
+
+appendFile(join(__dirname,'write.js'),`
+const c='upul';
+console.log(c)
+`).then(
+    res=>log(res)
+    .catch(err=>log(err))
+)
 
 // callback Api
 
