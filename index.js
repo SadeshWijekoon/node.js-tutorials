@@ -1,5 +1,5 @@
 import { log } from 'node:console'
-import { appendFile, readFile, writeFile } from 'node:fs'
+import { appendFile, readFile, rm, writeFile } from 'node:fs'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -29,20 +29,29 @@ log(__dirname);
 //  }
 // })
 
-appendFile(join(__dirname,'write.js'),
-`
- const a ="Sadesh";
- const c= [1,2,3,4,5];
+// appendFile(join(__dirname,'write.js'),
+// `
+//  const a ="Sadesh";
+//  const c= [1,2,3,4,5];
 
- console.log(a);
- console.log(c[2]);
-`
-,{
-    encoding:'utf-8'
-},(err)=>{
-    if(err){
-        log(err)
-    }else{
-        log('data has been set sucessfully'); 
-    }
+//  console.log(a);
+//  console.log(c[2]);
+// `
+// ,{
+//     encoding:'utf-8'
+// },(err)=>{
+//     if(err){
+//         log(err)
+//     }else{
+//         log('data has been set sucessfully'); 
+//     }
+// })
+
+rm(join(__dirname,'write.js'),(err)=>{
+  if(err){
+    console.log(err);
+    
+  }else{
+    log('remove sucessfully')
+  }
 })
