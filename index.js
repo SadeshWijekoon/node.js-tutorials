@@ -1,5 +1,5 @@
 import { log } from 'node:console'
-import { readFile, writeFile } from 'node:fs'
+import { appendFile, readFile, writeFile } from 'node:fs'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -19,12 +19,30 @@ log(__dirname);
 //   }
 // })
 
-writeFile(join(__dirname,'write.txt'),'Sadesh Theshan Wijekoon12',{
+// writeFile(join(__dirname,'write.txt'),'Sadesh Theshan Wijekoon12',{
+//     encoding:'utf-8'
+// },(err)=>{
+//  if(err){
+//    log(err)
+//  }else{
+//     log("File has been set ")
+//  }
+// })
+
+appendFile(join(__dirname,'write.js'),
+`
+ const a ="Sadesh";
+ const c= [1,2,3,4,5];
+
+ console.log(a);
+ console.log(c[2]);
+`
+,{
     encoding:'utf-8'
 },(err)=>{
- if(err){
-   log(err)
- }else{
-    log("File has been set ")
- }
+    if(err){
+        log(err)
+    }else{
+        log('data has been set sucessfully'); 
+    }
 })
