@@ -1,6 +1,6 @@
 import { log } from 'node:console'
-// import { appendFile, readFile, rm, writeFile } from 'node:fs'
-import {readFile,writeFile,appendFile,rm, rmdir} from 'node:fs/promises'
+import { appendFile, readFile, readFileSync, rm, writeFile, writeFileSync } from 'node:fs'
+// import {readFile,writeFile,appendFile,rm, rmdir} from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
 
@@ -10,87 +10,12 @@ const __dirname = dirname(__filename)
 log(__filename);
 log(__dirname);
 
-// promise api 
+//   const data = readFileSync(join(__dirname,"write.js"),{
+//     encoding:"utf8"
+//   })
 
-// readFile(join(__dirname,'read.txt'),{
-//     encoding:'utf8'
-// }).then((data)=>log(data))
-//   .catch(err=>log(err))
+//   log(data);
 
-
-//   const writeFun = async (data) => {
-//     try {
-//       await writeFile(join(__dirname, 'write.js'), data, {
-//         encoding: 'utf-8',
-//       });
-//       log('File written successfully!');
-//     } catch (err) {
-//       log('Error writing file:', err);
-//     }
-//   };
-//   writeFun(`
-//     const a = 'Sadesh'
-//     console.log(a)
-//     `)
-
-// appendFile(join(__dirname,'write.js'),`
-// const c='upul';
-// console.log(c)
-// `).then(
-//     res=>log(res)
-//     .catch(err=>log(err))
-// )
-
-
-rm(join(__dirname,'read.txt'))
-.then(res=>log(res))
-.catch(err=>log(err))
-
-// callback Api
-
-// readFile(join(__dirname,"read.txt"),{
-//     encoding:'utf-8'
-// },(err,data)=>{
-//   if (err){
-//     log(err)
-//   }else{
-//     log(data)
-//   }
-// })
-
-// writeFile(join(__dirname,'write.txt'),'Sadesh Theshan Wijekoon12',{
-//     encoding:'utf-8'
-// },(err)=>{
-//  if(err){
-//    log(err)
-//  }else{
-//     log("File has been set ")
-//  }
-// })
-
-// appendFile(join(__dirname,'write.js'),
-// `
-//  const a ="Sadesh";
-//  const c= [1,2,3,4,5];
-
-//  console.log(a);
-//  console.log(c[2]);
-// `
-// ,{
-//     encoding:'utf-8'
-// },(err)=>{
-//     if(err){
-//         log(err)
-//     }else{
-//         log('data has been set sucessfully'); 
-//     }
-// })
-
-// rm(join(__dirname,'write.js'),(err)=>{
-//   if(err){
-//     console.log(err);
-    
-//   }else{
-//     log('remove sucessfully')
-//   }
-// })
+  writeFileSync(join(__dirname,'write.js'),`
+  const v = "Sadesh"
+  `)
