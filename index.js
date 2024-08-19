@@ -1,5 +1,5 @@
 import { log } from 'node:console'
-import { appendFile, readFile, readFileSync, rm, writeFile, writeFileSync } from 'node:fs'
+import { appendFile, appendFileSync, readFile, readFileSync, rm, rmSync, writeFile, writeFileSync } from 'node:fs'
 // import {readFile,writeFile,appendFile,rm, rmdir} from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import {fileURLToPath} from 'node:url'
@@ -16,6 +16,12 @@ log(__dirname);
 
 //   log(data);
 
-  writeFileSync(join(__dirname,'write.js'),`
-  const v = "Sadesh"
-  `)
+//   writeFileSync(join(__dirname,'write.js'),`
+//   const v = "Sadesh"
+//   `)
+
+// appendFileSync(join(__dirname,"write.js"),`
+//  console.log(v)
+// `)
+
+rmSync(join(__dirname,"write.js"))
